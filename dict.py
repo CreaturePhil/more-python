@@ -1,4 +1,5 @@
 import random
+import time
 
 this = {"one": 1, "two": 2, "three": 3}
 static = {"this": this, this["three"]: "this"}
@@ -33,6 +34,7 @@ print new
 
 # Random insertion sort appears!
 def insertionsort(arr):
+  start = time.time()
   for i in range(1, len(arr)):
     temp = arr[i]
     ci = i - 1
@@ -40,4 +42,7 @@ def insertionsort(arr):
       arr[ci+1] = arr[ci]
       ci = ci - 1
     arr[ci+1] = temp
-  return arr
+  end = time.time()
+  return end - start
+
+print insertionsort(new.values()*200)
